@@ -6,8 +6,8 @@ class FDAFoodService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.create_connection(query = nil, append = nil)
-    Faraday.new("https://api.nal.usda.gov/fdc/v1/foods/search") do |req|
+  def self.create_connection(query = nil)
+    Faraday.new('https://api.nal.usda.gov/fdc/v1/foods/search') do |req|
       req.params['api_key'] = ENV['FDA_API_KEY']
       req.params['query'] = query if query
       req.params['pageSize'] = 10
