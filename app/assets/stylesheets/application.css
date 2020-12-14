@@ -14,32 +14,48 @@
  *= require_self
  */
 
-
 .navbar {
-    background-color: #333;
-    overflow: hidden;
+  background-color: #333;
+  overflow: hidden;
 }
 
 .navbar a {
-    float: left;
-    color: #f2f2f2;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+  float: left;
+  color: #f2f2f2;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 .navbar a.active {
-    background-color: #4CAF50;
-    color: white;
+  background-color: #4CAF50;
+  color: white;
 }
 
 .select {
   padding-top: 12px;
+}
+
+#food-list {
+  display: grid;
+  /* grid */
+  grid-template-columns: auto auto auto auto;
+  column-gap: 20px;
+  row-gap: 30px;
+}
+
+.food-block {
+  display: block;
+
+  border-width: 2px;
+  border-color: #333;
+  border-style: solid;
+  padding: 0px 10px;
 }
