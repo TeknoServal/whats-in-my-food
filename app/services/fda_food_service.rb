@@ -3,14 +3,14 @@ class FDAFoodService
     conn = create_connection(query)
 
     response = conn.get
-    JSON.parse(response.body)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.create_connection(query = nil, append = nil)
     Faraday.new("https://api.nal.usda.gov/fdc/v1/foods/search") do |req|
-      req.params['api_key'] = ENV['TMDB_API_KEY']
+      req.params['api_key'] = ENV['FDA_API_KEY']
       req.params['query'] = query if query
-      req.params['append_to_response'] = append if append
+      req.params['pageSize'] = 10
     end
   end
 end
