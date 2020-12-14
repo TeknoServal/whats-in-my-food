@@ -1,11 +1,13 @@
+require 'rails_helper'
+
 describe 'As a user,' do
   describe 'When I visit "/" And I fill in the search form with "sweet potatoes"' do
     it 'And I click "Search"' do
       visit '/'
 
-      fill_in(:q, with: 'apple')
+      fill_in(:q, with: 'sweet potatoes')
 
-      expect(page).to have_current_path('/foods')
+      click_button('Search')
 
       expect(page).to have_content('39244 results')
 
@@ -21,7 +23,6 @@ describe 'As a user,' do
         expect(food_block).to have_css('.food-brand')
         # - The food's ingredients
         expect(food_block).to have_css('.food-ingredients')
-
       end
     end
   end
