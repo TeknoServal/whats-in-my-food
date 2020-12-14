@@ -1,1 +1,22 @@
-<h1><%= @food.name   %></h1>
+<h1>Results for <%= @search   %></h1>
+<h3><%= @foods[:result_count] %> results</h3>
+
+<section id='food-list'>
+  <% @foods[:foods].each do |food| %>
+    <div class='food-block' id='<%= food.fdcId %>'>
+      <h2 class='food-description'><%= food.description %></h2>
+      <p>
+        <span class='food-code'>ID: <%= food.fdcId %></span> <br>
+        <span class='food-brand'>Brand: <%= food.brandOwner %></span>
+      </p>
+      <div class='food-ingredients'>
+        <h4>Nutrients:</h4>
+        <p>
+          <% food.nutrients.each do |nutrient| %>
+            <%= nutrient.nutrientName %>: <%= nutrient.nutrientNumber %> <%= nutrient.unitName %> <br>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</section>
